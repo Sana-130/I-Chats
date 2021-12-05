@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+      }
+      body {
+        background-image: url('login_image.jpg');
+        background-size: cover;
+        display: grid;
+        place-items: center;
+        height: 100%;
+      }
+      .content{
+        width:350px;
+        border-radius: 10px;
+        padding:40px 30px;
+        position:relative;
+        overflow: hidden;
+        z-index: 10;
+        backdrop-filter: blur(15px);
+        margin-top: 13%;
+        
+      }
+      .content .text{
+        font-size: 33px;
+        font-weight: 600;
+        margin-bottom: 35px;
+        margin-left: 25%;
+      }
+      .content .field{
+        height:50px;
+        width:100%;
+        display:flex;
+        position:relative;
+      }
+    
+      .field input{
+        height:100%;
+        width:100%;
+        padding-left: 45px;
+        font-size: 18px;
+        outline: none;
+        border:none;
+        color: #181718;
+        border-radius: 25px;
+        background:#121213 ;
+        background: rgba(255, 255, 255, 0.05);
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-left: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.5);
+        
+      }
+      .field :nth-child(2){
+        margin-top: 20px;
+      }
+      .field span {
+        position:absolute;
+        width:50px;
+        line-height:50px;
+        color:#595959;
+      }
+      button{
+        
+        margin:15px 0;
+        width: 100%;
+        height:50px;
+        color: #141413;
+        font-size:18px;
+        font-weight:600;
+        background:#b9bbbd;
+        border:none;
+        cursor:pointer;
+        outline:none;
+        border-radius:25px;
+        background:rgba(255, 255, 255, 0.2);
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-left:1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  
+  <body>
+    <div class="content">
+      <div class="text">I-Chats</div>
+        <form action="chat.html" >
+          <div class="field">
+            <input type="text" id="username" name="username" placeholder="nick name" ><br><br>
+          </div><br>
+          <button><input type="submit" style="background:none; border: none; font-size: medium; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" value="ENTER THE CHAT"></button>
+        </form> 
+      
+      
+    </div>
+    
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
+      integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/socket.io/socket.io.js"></script>
+    
+  
+  </body>
+</html>

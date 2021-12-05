@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel='stylesheet' href='https://bootswatch.com/5/litera/bootstrap.css'/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        } 
+
+       #parent_box{
+        width:1300px;
+        height: 600px;
+        display:flex;
+      }
+      #form_group{
+        margin-top:7px;
+        width: 300px;
+        height:600px;
+        margin-left: 5px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(131, 123, 122);
+        font-weight: 500;
+        font-style: italic;
+      }
+      #sidebar{
+        width: 340px;
+        height:600px;
+        margin-left: 20px;
+        background-color: rgb(198, 200, 206);
+        color: rgb(22, 21, 21);
+        padding:10px;
+        border-left: 3px solid rgb(131, 123, 122);
+        top: 0;
+        overflow:hidden;
+  
+      }
+      #chat_box{
+        padding: 10px;
+        width: 590px;
+        height: 600px;
+        background-color: rgb(89, 105, 138);
+        color:rgb(201, 196, 196);
+        margin-left: 0px;
+        position:relative;
+        margin-left: 3px;
+        border-left: 3px solid rgb(131, 123, 122);
+        backdrop-filter: blur(3px);
+
+      }
+      
+      #type_area{
+        position:absolute;
+        bottom:3px;
+        width: 400px;
+        visibility:hidden;
+        white-space: nowrap; 
+      }
+
+      #members__sidebar{
+        padding:3px;
+        width: 290px;
+        height:600px;
+        margin-left: 3px;
+        background-color: rgb(55, 56, 58);
+        color: rgb(241, 238, 239);
+        font-size: medium;
+        visibility: hidden;
+        border-left: 3px solid rgb(131, 123, 122);
+        overflow:hidden;
+     
+      }
+      #chat_msg{
+        height:495px;
+        margin-right: -50px; /* Maximum width of scrollbar */
+        padding-right: 50px; /* Maximum width of scrollbar */
+        overflow-y: scroll;
+        word-wrap: break-word;
+      }
+      #members__div{
+        padding:4px;
+        color:rgb(245, 241, 242);
+        margin-right: -50px; /* Maximum width of scrollbar */
+        padding-right: 50px; /* Maximum width of scrollbar */
+        overflow-y: scroll;
+      }
+
+      #user__item{
+        margin-right: -50px; /* Maximum width of scrollbar */
+        padding-right: 50px; /* Maximum width of scrollbar */
+        overflow-y: scroll;
+      }
+
+      hr{
+        color:snow;
+      }
+      
+      #blah{
+        display: flex;
+        justify-content: space-between;
+      }
+     
+      #logo{
+        display: flex;
+        color:rgb(41, 103, 173);
+      }
+      
+      
+    
+    </style>
+  </head>
+  
+  <body >
+    <h1 id="welcome"></h1>
+    <h1 id="group"></h1>
+
+    <div id="parent_box"class="user" >
+      <div id="form_group" class="list-group" style="padding: 5px;">
+        <div id="logo"><h3>I-Chats</h3>&nbsp;<i class="material-icons" style="font-size: 35px">chat</i></div>
+        <div class="form-group">
+        <form id="form">
+          <label class="col-form-label mt-4" for="inputDefault">Create A Group</label>
+          <input type="text" id="group_name" name="group_name"  class="form-control"><br>
+          <button type="submit" class="btn btn-primary btn-sm">Create</button>
+        </form> <br>
+        </div>
+        <div class="form-group">
+        <form id="form_search">
+          <label>Search for a Group</label>
+          <input type="text" id="p/g_name" name="p/g_name" class="form-control"><br>
+          <button type="submit" class="btn btn-primary btn-sm">Search</button>
+        </form><br>
+        </div>
+        <div class="form-group">
+        <form id="person_search">
+          <label>Search for a User</label>
+          <input type="text" id="person_name" name="person_name" class="form-control"><br>
+          <button type="submit" class="btn btn-primary btn-sm">Search</button>
+        </form>
+      </div>
+      </div>
+         
+      <div id="sidebar">
+        <h3><b>Users</b></h3>
+        <div class="list-group" id="user__item">
+        </div>
+      </div>
+      
+      <div  id="chat_box" style="overflow:hidden;" >
+        <div class="chat_msg" id="chat_msg"  >
+          <h1>welcome to <i>I-Chats</i></h1>
+          
+        </div>
+        <div id="type_area" class="form-group">
+          <form id="chat_form" >
+            <table >
+              <tr>
+              <td style="background: none;"><input style="width:330px; border-radius: 11px; background-color:rgb(255, 255, 255);" type="text" id="chat_text" name="chat_text" class="form-control"></td>&nbsp;&nbsp;
+              <td style="background: none;"><button type="submit" style="float: right; border-radius: 11px; " class="btn btn-outline-primary"><b>Send</b></button></td>
+              </tr>
+            </table>
+            
+          </form>
+        </div>
+      </div>
+      <div class="list-group" id="members__sidebar" >
+        <div style="padding:5px;">
+        <div class="card text-white bg-primary mb-3" style="max-width: 20rem; border-radius: 10px; padding: 5px; font-size: medium;"  id="admin">Admin: </div>
+          <div id="blah"><h6>Members:</h6><span class="badge bg-primary rounded-pill" id="total_people"></span></div><hr>
+        </div>
+        <div class="members__div" id="members__div" ></div>
+        
+      
+      </div>
+    </div>
+    
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
+      integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/main.js" type="module"></script>
+    
+  
+  </body>
+</html>
