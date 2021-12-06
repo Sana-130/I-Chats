@@ -167,6 +167,15 @@ io.on('connection', socket=>{
             io.to(socket_id).emit("add user", data.group);
             bot_message=`Admin added ${user} to the group`
           }
+ 
+        }
+        if(command=="#delete_group"){
+          if(all_groups[user]!=undefined && user==data.group){
+            io.in(data.group).emit("group deletion", data.group);
+            io.in(data.group).emit("clear chat", {group:data.group, type:'group', content:`<h1>oops ${data.group} group is deleted by Admin! </h1>`})
+            delete all_groups[data.group];
+            bot_message=`${data.group} group is deleted`
+          }
         }
        
       }else{

@@ -22,7 +22,7 @@ socket.on('username taken', (data)=>{
 })
 
 var unread_msg={}
-var reserved_commands=["#remove_user", "#add_user", "#leave_group"];
+var reserved_commands=["#remove_user", "#add_user", "#leave_group", "#delete_group"];
 var current_group
 var current_type
 
